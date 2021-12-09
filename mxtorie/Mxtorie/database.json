@@ -1,0 +1,23 @@
+{
+    "main": {
+        "host": "185.248.33.247",
+        "port": "3306",
+        "user": "u43_qbZ1rEpXla",
+        "pass": "DQ3mJI@ee=.2z98^u4IkLVph",
+        "data": "s43_private21"
+    },
+    "second": {
+        "host": "185.248.33.247",
+        "port": "3306",
+        "user": "u16_ivfdpxOIIO",
+        "pass": "DI8AWy^M3.FHAaUUN!E=F8uN",
+        "data": "s16_gestion"
+    },
+    "third": {
+        "host": "185.248.33.247",
+        "port": "3306",
+        "user": "u8_3jfNXI9poE",
+        "pass": "QOhtNAfu!.@otL=of=8XitTc",
+        "data": "s8_coins"
+    }
+}

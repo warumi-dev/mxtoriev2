@@ -1,0 +1,32 @@
+<%- include("partials/header", { bot, user, path, title: "Home" }) %>
+    <link rel="stylesheet" href="../assets/tooplate-style.css">
+
+    <!--<div class="container-sm center" style="margin-top: 25px;">
+  <div class="d-grid gap-2 col-6 mx-auto">
+    <h2>Welcome to Simple Discord.js Dashboard!</h2>
+    <p>Thank you for downloading! Please consider staring it on GitHub, if you need any help, you can use the links below to see our GitHub page or join our support server.</p>
+    <a class="btn btn-secondary text-white" href="/dashboard">Dashboard</a>
+    <a class="btn btn-primary text-white" href="https://github.com/MrAugu/simple-discordjs-dashboard">GitHub</a>
+    <a class="btn btn-warning" href=""">Discord Server</a>
+  </div>
+</div>-->
+    <div class="container-sm center" style="margin-top: 25px;">
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <a class="btn btn-warning" href="/dashboard" ">Dashboard</a>
+            <div class="space"></div>
+            <h5 class="cat">Statistiques</h2>
+                <p class="h5" style="margin-bottom: 0.5rem; margin-top: 10px;">Serveurs total : <%= bot.guilds.cache.size %></p>
+                <p class="h5" style="margin-bottom: 0.5rem; margin-top: 10px;">Membres total : <%= bot.users.cache.size %></p>
+                <p class="h5" style="margin-bottom: 0.5rem; margin-top: 10px;">Salons total : <%= bot.channels.cache.size %></p>
+                <div class="space"></div>
+                <div class="space"></div>
+                <p class="h5" style="margin-bottom: 0.5rem; margin-top: 10px; color: RED;"><strong>SEUL L'ACHETEUR OU LES PROPRIÉTAIRES PEUVENT ACCÉDER AU BOT</strong></p>
+                <div class="space"></div>
+                <p class="h5" style="margin-bottom: 0.5rem; margin-top: 10px;"><strong><%= bot.user.username %></strong> est un bot puissant pour protéger vos serveurs.</p>
+                <p class="h5" style="margin-bottom: 0.5rem; margin-top: 10px;"><i \>Je ne suis pas le meilleur développeur web x)</i></p>
+  </div>
+  
+</div>
+    </div>
+
+    <%- include("partials/footer") %>

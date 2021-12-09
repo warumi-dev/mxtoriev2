@@ -1,0 +1,671 @@
+<%- include("partials/header", { bot, user, path, title: `Settings | ${guild.name}` }) %>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <!--<link rel="stylesheet" href="../assets/style.css">-->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/main.css" />
+	<noscript>
+		<link rel="stylesheet" href="../assets/css/noscript.css" />
+	</noscript>
+  <script src="../assets/js/jquery.min.js"></script>
+	<script src="../assets/js/browser.min.js"></script>
+	<script src="../assets/js/breakpoints.min.js"></script>
+	<script src="../assets/js/util.js"></script>
+	<script src="../assets/js/main.js"></script>
+  <% console.log(user.username +'#'+ user.discriminator + ' : connecté à la dashboard de : ' +guild.name) %>
+    <div class="d-grid gap-2 col-4 mx-auto">
+      <% if (alert) { %>
+        <hr>
+        <div class="alert alert-success" role="alert">
+          <%= alert %>
+        </div>
+        <% } %>
+          <!--<h1 class="central" style="text-decoration: underline;">
+            <%= guild.name %>
+          </h1>-->
+
+    </div>
+
+    <body class="is-preload">
+
+      <!-- Wrapper -->
+      <div id="wrapper">
+    
+        <!-- Header -->
+        <header id="header">
+          <div class="logo">
+            <span class="icon fa-gem"></span>
+          </div>
+          <div class="content">
+            <div class="inner">
+              <h1><%= guild.name %></h1>
+              <p>N"oubliez pas qu'il est préférable que votre bot ait le rôle le plus élevé sur la totalité des
+                serveurs, au moindre problème contactez au plus vite Jeotique.</p>
+            </div>
+          </div>
+          <nav>
+            <ul>
+              <li><a href="#prefix">Prefix</a></li>
+              <li><a href="#welcome">Message bienvenue</a></li>
+              <li><a href="#captchaa">Captcha</a></li>
+              <li><a href="#default">Rôle par défaut</a></li>
+              <!--<li><a href="#elements">Elements</a></li>-->
+            </ul>
+          </nav>
+          <nav>
+            <ul>
+              <li><a href="#soutiens">Rôle soutiens</a></li>
+              <li><a href="#protect">Protections</a></li>
+              <li><a href="#role">Autre rôles</a></li>
+              <li><a href="#ticket">Ticket</a></li>
+              <!--<li><a href="#elements">Elements</a></li>-->
+            </ul>
+          </nav>
+          <nav>
+            <ul>
+              <li><a href="#logs">Logs</a></li>
+              <li><a href="#channel">Autre salons</a></li>
+              
+              <!--<li><a href="#elements">Elements</a></li>-->
+            </ul>
+    
+          </nav>
+          
+           
+        </header>
+
+        <form method="POST">
+          <div id="main">
+            <!-- Intro -->
+            <article id="prefix">
+              <h2 class="major">Prefix</h2>
+              <div class="field">
+                <label for="prefix">Entrer votre prefix :</label>
+                <input type="text" name="prefix" id="prefix" value="<%= settings.prefix %>" placeholder="entrer un prefix valide" />
+              </div>
+      
+            </article>
+      
+            <!-- message de bienvenue -->
+            <article id="welcome">
+              <h2 class="major">Message de bienvenue</h2>
+              <div class="field half">
+                <% if(settings.welcome=='on' ) { %>
+                <input type="checkbox" id="welcomebox" name="welcomebox" checked>
+                <% } else { %>
+                  <input type="checkbox" id="welcomebox" name="welcomebox">
+                  <% } %>
+                <label for="welcomebox">Activer le message de bienvenue</label>
+                <p>default : message de bienvenue par défaut
+                  <br />[member] : mentionne le membre
+                  <br />[server] : met le nom du serveur
+                  <br />[membercount] : nombre de membres sur le serveur
+                  <br />[invite] : obtiens le code d'invitation
+                  <br />[invitecountwithcode] : combien de fois le code a été utilisé
+                  <br />[invitedby] : qui la invité
+                  <br />[invitecount] : combien il a d'invitation
+                </p>
+              </div>
+              <div class="field">
+                <label for="welcomemsg">Message :</label>
+                <textarea name="welcomemsg" id="welcomemsg" rows="4"><%= settings.welcomemsg %></textarea>
+              </div>
+              <div class="field">
+                <label for="welcomechan">Salon de bienvenue</label>
+                <select name="welcomechan" id="welcomechan">
+                  <option value="<%= channels.welcomechan %>"><%- guild.channels.cache.has(channels.welcomechan) ?
+                    guild.channels.cache.get(channels.welcomechan).name : '-' %></option>
+                    <option value="-">[ Désactiver ]</option>
+                    <% const Allchan=guild.channels.cache.filter((c)=> c.type !== "category")
+                      Allchan.forEach(async function(channel) {
+                      if(!channel) return;
+                      if(channel.type != "text") return;
+                      %>
+                      <option value="<%= channel.id %>">
+                        <%= channel.name %>
+                      </option>
+                      <% }); %>
+                </select>
+              </div>
+            </article>
+      
+            <!-- captcha -->
+            <article id="captchaa">
+              <h2 class="major">Captcha</h2>
+              <% if(settings.captcha=='on' ) { %>
+                  <input type="checkbox" id="captcha" name="captcha" checked>
+                  <% } else { %>
+                    <input type="checkbox" id="captcha" name="captcha">
+                    <% } %>
+              <label for="captcha">Activer le catcha</label>
+              <div class="field">
+                <label for="captcharole">Rôle le temps de la vérification</label>
+                <select name="captcharole" id="captcharole">
+                <option value="<%= roles.captcha %>">
+                  <%- guild.roles.cache.has(roles.captcha) ? guild.roles.cache.get(roles.captcha).name : '-' %>
+                </option>
+                <option value="-">[ Désactiver ]</option>
+                <% guild.roles.cache.forEach(async function(role) { if(!role) return; if(role.id === guild.roles.everyone.id) return; %>
+                  <option value="<%= role.id %>">
+                    <%= role.name %>
+                  </option>
+                  <% }); %>
+                </select>
+              </div>
+              <div class="field">
+                <label for="captchachan">Salon de vérification</label>
+                <select name="captchachan" id="captchachan">
+                  <option value="<%= channels.captcha %>"><%- guild.channels.cache.has(channels.captcha) ?
+                    guild.channels.cache.get(channels.captcha).name : '-' %></option>
+                    <option value="-">[ Désactiver ]</option>
+                    <% //const Allchan=guild.channels.cache.filter((c)=> c.type !== "category")
+                      Allchan.forEach(async function(channel) {
+                      if(!channel) return;
+                      if(channel.type != "text") return;
+                      %>
+                      <option value="<%= channel.id %>">
+                        <%= channel.name %>
+                      </option>
+                      <% }); %>
+                </select>
+              </div>
+            </article>
+      
+            <!-- role par defaut -->
+            <article id="default">
+              <h2 class="major">Rôle par défaut</h2>
+              <% if(settings.defaultrole=='on' ) { %>
+              <input type="checkbox" id="defaultrolea" name="defaultrolea" checked>
+              <% } else { %>
+                <input type="checkbox" id="defaultrolea" name="defaultrolea">
+                <% } %>
+              <label for="defaultrolea">Activer le rôle par défaut</label>
+              <div class="field">
+                <label for="defaultrole">Rôle donner au nouveau arrivant</label>
+                <select name="defaultrole" id="defaultrole">
+                  <option value="<%= roles.defaultrole %>">
+                    <%- guild.roles.cache.has(roles.defaultrole) ? guild.roles.cache.get(roles.defaultrole).name : '-' %>
+                  </option>
+                  <option value="-">[ Désactiver ]</option>
+                  <% guild.roles.cache.forEach(async function(role) { if(!role) return; if(role.id === guild.roles.everyone.id) return; %>
+                    <option value="<%= role.id %>">
+                      <%= role.name %>
+                    </option>
+                    <% }); %>
+                </select>
+              </div>
+            </article>
+      
+            <!-- role soutiens -->
+            <article id="soutiens">
+              <h2 class="major">Rôle de soutiens</h2>
+              <% if(settings.support=='on' ) { %>
+              <input type="checkbox" id="support" name="support" checked>
+              <% } else { %>
+                <input type="checkbox" id="support" name="support">
+                <% } %>
+              <label for="support">Activer le rôle de soutiens</label>
+              <div class="field">
+                <label for="supportmsg">Que doit contenir le statut d'un membre pour que le rôle lui sois donner
+                  :</label>
+                <input type="text" name="supportmsg" id="supportmsg" value="<%= settings.supportmsg %>"
+                  placeholder="votre message de soutiens, ex : .gg/vatorie" />
+              </div>
+              <div class="field">
+                <label for="supportrole">Rôle soutiens</label>
+                <select name="supportrole" id="supportrole">
+                  <option value="<%= roles.support %>">
+                    <%- guild.roles.cache.has(roles.support) ? guild.roles.cache.get(roles.support).name : '-' %>
+                  </option>
+                  <option value="-">[ Désactiver ]</option>
+                  <% guild.roles.cache.forEach(async function(role) { if(!role) return; if(role.id === guild.roles.everyone.id) return; %>
+                    <option value="<%= role.id %>">
+                      <%= role.name %>
+                    </option>
+                    <% }); %>
+                </select>
+              </div>
+      
+            </article>
+      
+            <!-- protection -->
+            <article id="protect">
+              <h2 class="major">Protections</h2>
+              <% if(protections.links=='on' ) { %>
+              <input type="checkbox" id="antilink" name="antilink" checked>
+              <% } else { %>
+                <input type="checkbox" id="antilink" name="antilink">
+                <% } %>
+              <label for="antilink">Anti-lien</label>
+              <% if(protections.gif=='on' ) { %>
+              <input type="checkbox" id="acceptgif" name="acceptgif" checked>
+              <% } else { %>
+                <input type="checkbox" id="acceptgif" name="acceptgif">
+                <% } %>
+              <label for="acceptgif">L'anti lien doit-t'il accepter les gif ?</label>
+              <% if(protections.spam=='on' ) { %>
+              <input type="checkbox" id="antispam" name="antispam" checked>
+              <% } else { %>
+                <input type="checkbox" id="antispam" name="antispam">
+                <% } %>
+              <label for="antispam">Anti-spam</label>
+              <div class="field">
+                <label for="spamlevel">Spam level</label>
+                <select name="spamlevel" id="spamlevel">
+                  <option value="<%= protections.spamlevel %>"><%= protections.spamlevel %></option>
+                  <option value="low">low</option>
+                  <option value="medium">medium</option>
+                  <option value="agressive">agressive</option>
+                </select>
+              </div>
+              <% if(protections.role=='on' ) { %>
+              <input type="checkbox" id="antirole" name="antirole" checked>
+              <% } else { %>
+                <input type="checkbox" id="antirole" name="antirole">
+                <% } %>
+              <label for="antirole">Anti-rôle</label>
+              <% if(protections.channel=='on' ) { %>
+              <input type="checkbox" id="antichannel" name="antichannel" checked>
+              <% } else { %>
+                <input type="checkbox" id="antichannel" name="antichannel">
+                <% } %>
+              <label for="antichannel">Anti-channel</label>
+              <% if(protections.bot=='on' ) { %>
+              <input type="checkbox" id="antibot" name="antibot" checked>
+              <% } else { %>
+                <input type="checkbox" id="antibot" name="antibot">
+                <% } %>
+              <label for="antibot">Anti-bot</label>
+              <% if(protections.webhook=='on' ) { %>
+              <input type="checkbox" id="antiwebhook" name="antiwebhook" checked>
+              <% } else { %>
+                <input type="checkbox" id="antiwebhook" name="antiwebhook">
+                <% } %>
+              <label for="antiwebhook">Anti-webhook</label>
+              <% if(protections.antieditrole=='on' ) { %>
+              <input type="checkbox" id="antieditrole" name="antieditrole" checked>
+              <% } else { %>
+                <input type="checkbox" id="antieditrole" name="antieditrole">
+                <% } %>
+              <label for="antieditrole">Anti-edit rôle</label>
+              <% if(protections.prtcjoin=='on' ) { %>
+              <input type="checkbox" id="prtcjoin" name="prtcjoin" checked>
+              <% } else { %>
+                <input type="checkbox" id="prtcjoin" name="prtcjoin">
+                <% } %>
+              <label for="prtcjoin">Nouveau compte détéction</label>
+              <div class="field">
+                <label for="prtcjointime">Combien de temps depuis sa création un compte est considérer comme nouveau
+                  : (à la fin : s pour seconde/m pour minute/h pour heure/d pour jour)</label>
+                <input type="text" name="prtcjointime" id="prtcjointime" value="<%= protections.prtcjointime %>"
+                  placeholder="à la fin : s pour seconde/m pour minute/h pour heure/d pour jour" />
+              </div>
+              <% if(protections.antiguild=='on' ) { %>
+              <input type="checkbox" id="antiguild" name="antiguild" checked>
+              <% } else { %>
+                <input type="checkbox" id="antiguild" name="antiguild">
+                <% } %>
+              <label for="antiguild">Anti-edit serveur</label>
+              <% if(protections.token=='on' ) { %>
+              <input type="checkbox" id="antitoken" name="antitoken" checked>
+              <% } else { %>
+                <input type="checkbox" id="antitoken" name="antitoken">
+                <% } %>
+              <label for="antitoken">Anti-token</label>
+              <div class="field">
+                <label for="punish">Punition</label>
+                <select name="punish" id="punish">
+                  <option value="<%= protections.punish %>"><%= protections.punish %></option>
+                  <option value="derank">derank</option>
+                  <option value="kick">kick</option>
+                  <option value="ban">ban</option>
+                </select>
+              </div>
+            </article>
+      
+            <!-- role -->
+            <article id="role">
+              <h2 class="major">Autre rôle</h2>
+              <div class="field">
+                <label for="memberrole">Rôle membre</label>
+                <select name="memberrole" id="memberrole">
+                  <option value="<%= roles.member %>">
+                    <%- guild.roles.cache.has(roles.member) ? guild.roles.cache.get(roles.member).name : '-' %>
+                  </option>
+                  <option value="-">[ Désactiver ]</option>
+                  <% guild.roles.cache.forEach(async function(role) { if(!role) return; if(role.id === guild.roles.everyone.id) return; %>
+                    <option value="<%= role.id %>">
+                      <%= role.name %>
+                    </option>
+                    <% }); %>
+                </select>
+              </div>
+              <div class="field">
+                <label for="muterole">Rôle muet</label>
+                <select name="muterole" id="muterole">
+                  <option value="<%= roles.mute %>">
+                    <%- guild.roles.cache.has(roles.mute) ? guild.roles.cache.get(roles.mute).name : '-' %>
+                  </option>
+                  <option value="-">[ Désactiver ]</option>
+                  <% guild.roles.cache.forEach(async function(role) { if(!role) return; if(role.id === guild.roles.everyone.id) return; %>
+                    <option value="<%= role.id %>">
+                      <%= role.name %>
+                    </option>
+                    <% }); %>
+                </select>
+              </div>
+              <div class="field">
+                <label for="banrole">Rôle pour ban/kick/unban</label>
+                <select name="banrole" id="banrole">
+                  <option value="<%= roles.ban %>">
+                    <%- guild.roles.cache.has(roles.ban) ? guild.roles.cache.get(roles.ban).name : '-' %>
+                  </option>
+                  <option value="-">[ Désactiver ]</option>
+                  <% guild.roles.cache.forEach(async function(role) { if(!role) return; if(role.id === guild.roles.everyone.id) return; %>
+                    <option value="<%= role.id %>">
+                      <%= role.name %>
+                    </option>
+                    <% }); %>
+                </select>
+              </div>
+            </article>
+      
+            <!-- ticket -->
+            <article id="ticket">
+              <h2 class="major">Ticket</h2>
+              <% if(moderations.ticket=='1' ) { %>
+              <input type="checkbox" id="ticketfunction" name="ticketfunction" checked>
+              <% } else { %>
+                <input type="checkbox" id="ticketfunction" name="ticketfunction">
+                <% } %>
+              <label for="ticketfunction">Activer les tickets</label>
+              <div class="field">
+                <label for="ticketrole">Rôle minimum pour répondre</label>
+                <select name="ticketrole" id="ticketrole">
+                  <option value="<%= roles.ticket %>">
+                    <%- guild.roles.cache.has(roles.ticket) ? guild.roles.cache.get(roles.ticket).name : '-' %>
+                  </option>
+                  <option value="-">[ Désactiver ]</option>
+                  <% guild.roles.cache.forEach(async function(role) { if(!role) return; if(role.id === guild.roles.everyone.id) return; %>
+                    <option value="<%= role.id %>">
+                      <%= role.name %>
+                    </option>
+                    <% }); %>
+                </select>
+              </div>
+              <div class="field">
+                <label for="ticketschan">Salon pour créé un ticket</label>
+                <select name="ticketschan" id="ticketschan">
+                  <option value="<%= channels.tickets %>"><%- guild.channels.cache.has(channels.tickets) ?
+                    guild.channels.cache.get(channels.tickets).name : '-' %></option>
+                    <option value="-">[ Désactiver ]</option>
+                    <% //const Allchan=guild.channels.cache.filter((c)=> c.type !== "category")
+                      Allchan.forEach(async function(channel) {
+                      if(!channel) return;
+                      if(channel.type != "text") return;
+                      %>
+                      <option value="<%= channel.id %>">
+                        <%= channel.name %>
+                      </option>
+                      <% }); %>
+                </select>
+              </div>
+            </article>
+      
+            <!-- logs -->
+            <article id="logs">
+              <h2 class="major">Logs</h2>
+              <div class="field">
+                <label for="systemchan">Logs système</label>
+                <select name="systemchan" id="systemchan">
+                  <option value="<%= channels.system %>">
+                    <%- guild.channels.cache.has(channels.system) ? guild.channels.cache.get(channels.system).name : '-'
+                      %>
+                  </option>
+                  <option value="-">[ Désactiver ]</option>
+                  <% //Allchan=guild.channels.cache.filter((c)=> c.type !== "category")
+                    Allchan.forEach(async function(channel) {
+                    if(!channel) return;
+                    if(channel.type != "text") return;
+                    %>
+                    <option value="<%= channel.id %>">
+                      <%= channel.name %>
+                    </option>
+                    <% }); %>
+      
+                </select>
+              </div>
+              <div class="field">
+                <label for="sanctionschan">Logs des sanctions</label>
+                <select name="sanctionschan" id="sanctionschan">
+                  <option value="<%= channels.sanctions %>">
+                    <%- guild.channels.cache.has(channels.sanctions) ? guild.channels.cache.get(channels.sanctions).name
+                      : '-' %>
+                  </option>
+                  <option value="-">[ Désactiver ]</option>
+                  <% //const Allchan=guild.channels.cache.filter((c)=> c.type !== "category")
+                    Allchan.forEach(async function(channel) {
+                    if(!channel) return;
+                    if(channel.type != "text") return;
+                    %>
+                    <option value="<%= channel.id %>">
+                      <%= channel.name %>
+                    </option>
+                    <% }); %>
+      
+                </select>
+              </div>
+              <div class="field">
+                <label for="channel">Logs des salons</label>
+                <select name="channel" id="channel">
+                  <option value="<%= channels.channel %>">
+                    <%- guild.channels.cache.has(channels.channel) ? guild.channels.cache.get(channels.channel).name : '-'
+                      %>
+                  </option>
+                  <option value="-">[ Désactiver ]</option>
+                  <% //const Allchan=guild.channels.cache.filter((c)=> c.type !== "category")
+                    Allchan.forEach(async function(channel) {
+                    if(!channel) return;
+                    if(channel.type != "text") return;
+                    %>
+                    <option value="<%= channel.id %>">
+                      <%= channel.name %>
+                    </option>
+                    <% }); %>
+      
+                </select>
+              </div>
+              <div class="field">
+                <label for="messages">Logs des messages</label>
+                <select name="messages" id="messages">
+                  <option value="<%= channels.messages %>">
+                    <%- guild.channels.cache.has(channels.messages) ? guild.channels.cache.get(channels.messages).name
+                      : '-' %>
+                  </option>
+                  <option value="-">[ Désactiver ]</option>
+                  <% //const Allchan=guild.channels.cache.filter((c)=> c.type !== "category")
+                    Allchan.forEach(async function(channel) {
+                    if(!channel) return;
+                    if(channel.type != "text") return;
+                    %>
+                    <option value="<%= channel.id %>">
+                      <%= channel.name %>
+                    </option>
+                    <% }); %>
+      
+                </select>
+              </div>
+              <div class="field">
+                <label for="protectionslogs">Logs protections</label>
+                <select name="protectionschan" id="protectionschan">
+                  <option value="<%= channels.protections %>">
+                    <%- guild.channels.cache.has(channels.protections) ?
+                      guild.channels.cache.get(channels.protections).name : '-' %>
+                  </option>
+                  <option value="-">[ Désactiver ]</option>
+                  <% //const Allchan=guild.channels.cache.filter((c)=> c.type !== "category")
+                    Allchan.forEach(async function(channel) {
+                    if(!channel) return;
+                    if(channel.type != "text") return;
+                    %>
+                    <option value="<%= channel.id %>">
+                      <%= channel.name %>
+                    </option>
+                    <% }); %>
+      
+                </select>
+              </div>
+              <div class="field">
+                <label for="ticketslogschan">Logs des tickets</label>
+                <select name="ticketslogschan" id="ticketlogschan">
+                  <option value="<%= channels.ticketslogs %>">
+                    <%- guild.channels.cache.has(channels.ticketslogs) ?
+                      guild.channels.cache.get(channels.ticketslogs).name : '-' %>
+                  </option>
+                  <option value="-">[ Désactiver ]</option>
+                  <% //const Allchan=guild.channels.cache.filter((c)=> c.type !== "category")
+                    Allchan.forEach(async function(channel) {
+                    if(!channel) return;
+                    if(channel.type != "text") return;
+                    %>
+                    <option value="<%= channel.id %>">
+                      <%= channel.name %>
+                    </option>
+                    <% }); %>
+      
+                </select>
+              </div>
+              <div class="field">
+                <label for="vocalchan">Logs des vocaux</label>
+                <select name="vocalchan" id="vocalchan">
+                  <option value="<%= channels.vocal %>">
+                    <%- guild.channels.cache.has(channels.vocal) ? guild.channels.cache.get(channels.vocal).name : '-' %>
+                  </option>
+                  <option value="-">[ Désactiver ]</option>
+                  <% //const Allchan=guild.channels.cache.filter((c)=> c.type !== "category")
+                    Allchan.forEach(async function(channel) {
+                    if(!channel) return;
+                    if(channel.type != "text") return;
+                    %>
+                    <option value="<%= channel.id %>">
+                      <%= channel.name %>
+                    </option>
+                    <% }); %>
+      
+                </select>
+              </div>
+              <div class="field">
+                <label for="roleschan">Logs des rôles</label>
+                <select name="roleschan" id="roleschan">
+                  <option value="<%= channels.roles %>">
+                    <%- guild.channels.cache.has(channels.roles) ? guild.channels.cache.get(channels.roles).name : '-' %>
+                  </option>
+                  <option value="-">[ Désactiver ]</option>
+                  <% //const Allchan=guild.channels.cache.filter((c)=> c.type !== "category")
+                    Allchan.forEach(async function(channel) {
+                    if(!channel) return;
+                    if(channel.type != "text") return;
+                    %>
+                    <option value="<%= channel.id %>">
+                      <%= channel.name %>
+                    </option>
+                    <% }); %>
+      
+                </select>
+              </div>
+              <div class="field">
+                <label for="welcomelogschan">Logs des entrées/sorties</label>
+                <select name="welcomelogschan" id="welcomelogschan">
+                  <option value="<%= channels.welcomelogs %>">
+                    <%- guild.channels.cache.has(channels.welcomelogs) ?
+                      guild.channels.cache.get(channels.welcomelogs).name : '-' %>
+                  </option>
+                  <option value="-">[ Désactiver ]</option>
+                  <% //const Allchan=guild.channels.cache.filter((c)=> c.type !== "category")
+                    Allchan.forEach(async function(channel) {
+                    if(!channel) return;
+                    if(channel.type != "text") return;
+                    %>
+                    <option value="<%= channel.id %>">
+                      <%= channel.name %>
+                    </option>
+                    <% }); %>
+      
+                </select>
+              </div>
+      
+            </article>
+      
+            <!-- autre salons -->
+            <article id="channel">
+              <h2 class="major">Autre salons</h2>
+              <div class="field">
+                <label for="jtcchan">Rejoindre pour créé un salon vocal</label>
+                <select name="jtcchan" id="jtcchan">
+                  <option value="<%= channels.jtc %>">
+                    <%- guild.channels.cache.has(channels.jtc) ? guild.channels.cache.get(channels.jtc).name : '-' %>
+                  </option>
+                  <option value="-">[ Désactiver ]</option>
+                  <% //const Allchan=guild.channels.cache.filter((c)=> c.type !== "category")
+                    Allchan.forEach(async function(channel) {
+                    if(!channel) return;
+                    if(channel.type != "voice") return;
+                    %>
+                    <option value="<%= channel.id %>">
+                      <%= channel.name %>
+                    </option>
+                    <% }); %>
+                </select>
+              </div>
+              <div class="field">
+                <label for="levelchan">Notification level-up</label>
+                <select name="levelchan" id="levelchan">
+                  <option value="<%= channels.level %>">
+                    <%- guild.channels.cache.has(channels.level) ? guild.channels.cache.get(channels.level).name : '-' %>
+                  </option>
+                  <option value="-">[ Désactiver ]</option>
+                  <% //const Allchan=guild.channels.cache.filter((c)=> c.type !== "category")
+                    Allchan.forEach(async function(channel) {
+                    if(!channel) return;
+                    if(channel.type != "text") return;
+                    %>
+                    <option value="<%= channel.id %>">
+                      <%= channel.name %>
+                    </option>
+                    <% }); %>
+                </select>
+              </div>
+            </article>     
+            </div>       
+
+          <input type="text" class="invisible" name="oldmute" value="<%= currentmute %>" placeholder="don't change.">
+          <input type="text" class="invisible" name="oldticket" value="<%= currentticket %>" placeholder="don't change.">
+          <input type="text" class="invisible" name="oldcaptcharole" value="<%= currentcaptcha %>"
+            placeholder="don't change.">
+          <input type="text" class="invisible" name="oldcaptchachan" value="<%= currentcaptchachan %>"
+            placeholder="don't change.">
+
+              <br><button type="submit">[ -- Sauvegarder -- ]</button>
+
+            
+              <!-- Footer -->
+  <footer id="footer">
+    <p class="copyright">Bot créé par &copy;Jeotique.</p>
+  </footer>
+        </form>
+
+    
+
+
+
+</div>
+
+<!-- BG -->
+<div id="bg" style="z-index: -40;"></div>
+<script src="../assets/js/jquery.min.js"></script>
+	<script src="../assets/js/browser.min.js"></script>
+	<script src="../assets/js/breakpoints.min.js"></script>
+	<script src="../assets/js/util.js"></script>
+	<script src="../assets/js/main.js"></script>
+<%- include("partials/footer") %>
+

@@ -1,0 +1,503 @@
+{
+    "myprefix": "Mon prefix actuel est : ",
+    "nolinks": "les liens ne sont pas autorisé.",
+    "noperm": "Permission manquante.",
+    "nouwl": "Personne n'a été whitelisté.",
+    "noubl": "Personne n'a été blacklisté.",
+    "invalidmi": "l'id ou la mention est invalide.",
+    "needowner": "Vous avez besoin d'être le propriétaire pour faire ça.",
+    "alreadywl": "est déjà whitelisté.",
+    "undefinederror": "Une erreur est survenue, ré-essaie plus tard.",
+    "whitelisted": "a bien été whitelisté.",
+    "notwhitelisted": "n'est pas whitelisté.",
+    "unwhitelisted": "a bien été unwhitelisté.",
+    "alreadybl": "est déjà blacklisté.",
+    "blacklisted": "a bien été blacklisté.",
+    "notblacklisted": "n'est pas blacklisté.",
+    "unblacklisted": "a bien été unblacklisté.",
+    "nooneperm": "Aucun roles n'a la permision",
+    "needwl": "Vous avez besoin d'être whitelisté pour faire ça.",
+    "invalidargs": "L'argument n'est pas valide.",
+    "alreadyperm": "est déjà assigné à cette permission.",
+    "permassigned": "a bien été assigné à la permission",
+    "notperm": "n'est pas assigné à cette permission.",
+    "permunassigned": "a bien été retiré de la permission",
+    "permdesc": "Permission 1 : Fort\nPermission 2 : Moyen\nPermission 3 : Faible\nGiveaway : Permet de lancer un giveaway\nLa permission 3 donne un accès à partiquement toutes les options de modération basique, n'oubliez pas la permission giveaway qui elle ce configure sur des members et non un rôle.",
+    "createby": "créé par Jeotique et Lauryne",
+    "nosanction": "Cette personne n'a aucune sanction.",
+    "noanswer": "Aucune réponde, commande annulée.",
+    "settingsmodtitle": "Configuration du mode modération",
+    "enable": "Activé",
+    "disable": "Désactivé",
+    "notset": "Indéfini",
+    "ticketsystem": "Système de ticket",
+    "ticketchannel": "Salon des commandes ticket",
+    "ticketrole": "Rôle de modération ticket",
+    "muterole": "Rôle muet",
+    "memberrole": "Rôle membre",
+    "settingsmoddesc": "💬 : paramétrer l'option mute et les rôles muet/membre.\n💣 : paramétrer les fonctions ban/unban/kick et le rôle pour la permission.\n🔻 : paramétrer l'option warn/unwarn.\n🎟️ : paramétrer le système de ticket.\n✅ : pour tout sauvegarder.\n❌ : pour tout annuler.",
+    "waitreaction": "Attendez l'ajout des réactions...",
+    "activmutefunction": "Voulez-vous activé les fonctions mute/unmute/tempmute ? yes/no/stop",
+    "givememberid": "Donne moi l'id du rôle `membre` ou envoie stop",
+    "givemuteid": "Donne moi l'id du rôle `muet` ou envoie stop",
+    "invalidrole": "Rôle invalide.\n**Commande annulée**",
+    "invalidchannel": "Salon invalide.\n**Commande annulée**",
+    "activebanfunction": "Voulez-vous activé les fonctions ban/kick/unban ? yes/no/stop",
+    "banassigned": "Perm ban/kick/unban assigné au rôle @💣 \n`Dans la liste des rôles du serveur : n'oublié pas de replacer le rôle à une bonne position !`",
+    "activewarnfunction": "Voulez-vous activé les fonctions warn/unwarn ? yes/no/stop",
+    "reallywantquit": "voulez-vous vraiment annulée toute la progresion actuel ? yes/no",
+    "activeticketfunction": "Voulez-vous activé le système de ticket ? yes/no/stop",
+    "giveticketchannel": "Donne moi l'id du salon pour les commandes ou envoie stop",
+    "giveticketrole": "Donne moi l'id du rôle pour les tickets (le rôle minimum pour répondre au ticket) or send stop",
+    "permtitle": "Niveaux de permissions",
+    "functiondisable": "Cette fonction est désactivé.",
+    "nomuterole": "Je n'ai aucun rôle muet défini pour ce serveur.",
+    "noreason": "La raison n'est pas valide.",
+    "hasbeenmuted": "a bien été mute pour la raison suivante :",
+    "alreadymuted": "est déjà muet.",
+    "notmuted": "n'est pas muet.",
+    "hasbeenunmuted": "a bien été démute.",
+    "invalidtime": "Le temps est invalide.",
+    "invalidlang": "Cette langue n'est pas disponible, pour le moment seul le **Français** et **l'Anglais** ne sont disponible. `'fr' | 'en'`",
+    "newprefix": "Mon nouveau prefix est :",
+    "loading": "Chargement",
+    "leaderboard": "Classement",
+    "level": "Niveau",
+    "youare": "Tu es",
+    "yousend": "Tu as envoyé",
+    "welcomemsg": "[member] : __bienvenue__ sur **[server]** avec toi nous sommes maintenant **[membercount]** !",
+    "captchaplz": "Merci de résoudre le captcha.",
+    "bannedbl": "a été banni en essayant de rejoindre alors qu'il est blacklisté.",
+    "newaccount": "a été détécté comme un nouveau compte et a été exclu.",
+    "cleared": "ont bien été supprimé(s) dans",
+    "by": "par",
+    "alreadyticket": "Tu as déjà un ticket ouvert.",
+    "welcometicket": "Ton ticket est",
+    "ticketwelcome": "bienvenue dans ton ticket",
+    "closeticket": "pour supprimer et fermer ton ticket !",
+    "deleteticket": "Le ticket vas être fermé et supprimé dans 3 secondes.",
+    "invaliduserid": "L'id du membre est invalid !",
+    "noticket": "Cette utilisateur n'a aucun ticket ouvert.",
+    "errorticket": "Erreur, peut-être car le channel a déjà été supprimer. Si il ne peut pas créé de ticket essaie la commande `ticket reset <user id>` !",
+    "ticketrest": "Les tickets de [member] ont bien été reset dans ma base de données.",
+    "rolebanproblem": "Je rencontre un problème avec le rôle de la perm ban/kick/unban assigné à ce serveur.",
+    "nopermban": "Tu n'as pas la permission pour ban/kick/unban un membre, tu as besoin de ce rôle :",
+    "problemban": "Hmm, problème...",
+    "hasbeenbanned": "a été banni pour la raison suivante :",
+    "youhasbeenbanned": "tu as été banni de",
+    "nextreason": "pour la raison suivante :",
+    "hasbeenkicked": "a été exclu pour la raison suivante :",
+    "youhasbeenkicked": "tu as été exclu de",
+    "hasbeenunban": "a bien été débanni",
+    "nounban": "Cette utilisateur n'existe pas ou n'est pas banni.",
+    "hasbeewarned": "a bien été averti",
+    "msgtoofast": "Tu envoie des messages trop rapidement.",
+    "failkick": "a échoué au captcha et a été exclu.",
+    "resolvecatpcha": "a résolu le captcha et a maintenant accès au serveur.",
+    "captchanoanswer": "n'a pas répondu au captcha je l'ai donc exclu.",
+    "createticket": "pour créé un ticket",
+    "ticketdelete": "pour supprimer et fermé son ticket",
+    "ticketclose": "pour supprimer et fermé le ticket d'un membre",
+    "webhookprtc": "**🛡️ | Une tentative pour créé un webhook a été faite sur le salon [channame] par [memberowner] (id : [memberid]) Le salon a été recréé et l'utilisateur [deranked].**",
+    "channelcreateprtc": "**🛡️ | Une tentative pour créé le salon : [channame] a été faite par [memberowner] (id : [memberid]) Le salon a été supprimer et l'utilisateur [deranked].**",
+    "channeldeleteprtc": "**🛡️ | Une tentative pour supprimer le salon : [channame] a été faite par [memberowner] (id : [memberid]) Le salon a été recréé et l'utilisateur [deranked].**",
+    "rolecreateprtc": "**🛡️ | Une tentative pour créé le rôle : [channame] a été faite par [memberowner] (id : [memberid]) Le rôle a été supprimer et l'utilisateur [deranked].**",
+    "roledeleteprtc": "**🛡️ | Une tentative pour supprimer le rôle : [channame] a été faite par [memberowner] (id : [memberid]) Le rôle a été recréé et l'utilisateur [deranked].**",
+    "roleupdateprtc": "**🛡️ | Une tentative pour éditer le rôle : [channame] a été faite par [memberowner] (id : [memberid]) Le rôle a été ré-éditer et l'utilisateur [deranked].**",
+    "roleaddprtc": "**🛡️ | Une tentative d'ajout du rôle : [channame] à [target] été faite par [memberowner] (id : [memberid]) Le rôle a été retiré et l'utilisateur [deranked].**",
+    "roleremoveprtc": "**🛡️ | Une tentative pour retirer le rôle : [channame] à [target] été faite par [memberowner] (id : [memberid]) Le rôle a été rajouté et l'utilisateur [deranked].**",
+    "channelnuked": "Salon détruit.",
+    "nukedinfo": "Si ce salon était relié à une fonction du bot n'oublié pas de la remettre sur le dashboard !",
+    "messagedeletedcontent": "Message supprimé de [member] dans [channel] : \n\n**[message]**",
+    "messagedeleted": "Message supprimé",
+    "channellocked": "Salon bloqué.",
+    "channelunlocked": "Salon débloqué.",
+    "state": "État :",
+    "toget": "Pour l'avoir mettez en statut :",
+    "messageupdate": "Message modifié",
+    "messageupdatedcontent": "Message modifié de [member] dans [channel]",
+    "oldcontent": "Ancien contenu :",
+    "newcontent": "Nouveau contenu :",
+    "lastdeleted": "Dernier message supprimé sur le serveur :",
+    "messagewas": "Le message était :",
+    "hasbeen": "a bien été",
+    "whattitle": "Quel est le titre ?",
+    "whatdescription": "Quel est la description ?",
+    "whatauthor": "Qui est author ?",
+    "whatfooter": "Quel est le footer ?",
+    "whatthumbnail": "Quel sera la pdp ? (LIEN D'IMAGE)",
+    "invalidthumbnail": "Pdp invalide",
+    "whatpicture": "Quel sera l'image à ajouté ? (LIEN D'IMAGE)",
+    "invalidpicture": "Image invalide",
+    "whaturl": "Quel est l'url ?",
+    "whatcolor": "Quel couleur ? (COULEUR HEX | EX : #7400FF)",
+    "whattitlefield": "Quel est le titre de la section ?",
+    "whatdescriptionfield": "Quel est la description de la section ?",
+    "whattitleremove": "Quel est le **titre** de la section à supprimée ?",
+    "cantfindfield": "Je ne trouve pas cette section",
+    "sendembed": "Donne moi l'id d'un salon et je vais l'envoyé là-bas. Sinon, pour l'envoyé dans ce salon envoie 'here'",
+    "removing": "Retrait de",
+    "to": "à",
+    "finish": "Fini",
+    "adding": "Ajout de",
+    "usage": "Utilisation",
+    "banprtc": "**🛡️ | Une tentative pour ban un membre a été faite par [memberowner] (id : [memberid]) sur [victime]. Je l'ai débanni et l'utilisateur [deranked].**",
+    "guildprtc": "**🛡️ | Une tentative pour éditer le serveur a été faite par [memberowner] (id : [memberid]). Le serveur a bien été ré-éditer et l'utilisateur [deranked].**",
+    "command": {
+        "desc": {
+            "wl": "Gérer les membres whitelisté du serveur.",
+            "bl": "Gérer les membres blacklisté du serveur.",
+            "perm": "Gérer les niveaux de permissions des rôles du serveur.",
+            "sanction": "Voir toutes les sanctions d'un membre.",
+            "mute": "Rendre un membre muet pour qu'il ne puisse plus envoyé de message.",
+            "unmute": "Démute un membre.",
+            "tempmute": "Rendre un membre muet pendant un temps défini.",
+            "setlang": "Change la langue du bot pour votre serveur.",
+            "setprefix": "Change le prefix présent devant les commandes.",
+            "ping": "Obtenir le temps de réaction du bot et de son api.",
+            "level": "Regarde votre level et le nombre de messages que vous avez envoyé.",
+            "leaderboard": "Montre le classement actuel des niveaux(ou des messages)(or messages) du serveur.",
+            "clear": "Supprimé un nombre de message en une commande.",
+            "ticket": "Crée ton salon pour contacter un staff.",
+            "ban": "Ban un membre du serveur.",
+            "kick": "Exclu un membre du serveur.",
+            "unban": "Débanne un membre du serveur.",
+            "warn": "Ajoute une sanction à un membre.",
+            "nuke": "Supprime un salon pour le recréé ensuite.",
+            "slowdown": "Modifie le slowdown du salon sans limite de temps.",
+            "lock": "Retire la permission d'envoyé des messages.",
+            "unlock": "Remet la permission d'envoyé des messages.",
+            "support": "Voir le statut de soutiens actuel.",
+            "snipe": "Montre le dernier message supprimé sur le serveur.",
+            "pp": "Montre votre photo de profile ou du membre mentionné.",
+            "Sinfos": "Montre quelques informations sur le serveur.",
+            "infos": "Montre quelques informations sur vous ou le membre mentionné.",
+            "cry": "Envoie une photo de quelqu'un qui pleure.",
+            "kiss": "Envoie une photo de quelqu'un qui fais un bisou.",
+            "hug": "Envoie une photo de quelqu'un qui fais un câlin.",
+            "slap": "Envoie une photo de quelqu'un qui frappe un autre.",
+            "pat": "Envoie une photo de quelqu'un qui tapote/caresse un autre.",
+            "smile": "Envoie une photo de quelqu'un qui sourit.",
+            "fight": "Envoie une photo de quelqu'un qui ce bat.",
+            "waifu": "Envoie une photo d'une waifu.",
+            "derank": "Retire tout les rôles d'un membre (rajoute ensuite le rôle par défaut si il a été enregistrer).",
+            "embed": "Envoie un embed entièrement customisable.",
+            "permchecker": "Affiche toutes les permissions d'un membre du serveur.",
+            "botslist": "Montre tout les bots sur le serveur.",
+            "giveaway": "Créé un évenement et le bot choisi un gagnant aléatoire.",
+            "spam": "Ajoute ou enlève un salon de la protection anti-spam.",
+            "reactionrole": "Paramètrer un reaction role, quand quelqu'un intéragit avec cela lui ajoute/retire le rôle assigné.",
+            "8ball": "Poser une question et le bot vous répondra.",
+            "voicemove": "Déplacer tout les membres dans votre vocal.",
+            "anime": "Obtiens quelques informations sur un animé.",
+            "github": "Obtiens quelques informations sur un compte github.",
+            "instagram": "Obtiens quelques informations sur un compte instagram.",
+            "remove-everyone": "Retire la permission de mentionné everyone et here sur le rôle everyone et membre si paramètrer.",
+            "role": "Ajoute ou retire un rôle à quelqu'un.",
+            "Rinfos": "Obtiens quelques informations sur un rôle.",
+            "rwl": "Ajouté un rôle à la whitelist et le protéger. (Anti-role)",
+            "settings": "Modifié mes paramètres sur le serveur.",
+            "owner": "Ajouté/Retiré des propriétaires du bot.",
+            "backup": "Créé ou charge une backup, salons, rôles, permissions sauvegardé.",
+            "setactivity": "Change le message d'activité du bot.",
+            "setavatar": "Change la photo de profil du bot.",
+            "setname": "Change le nom du bot.",
+            "setstatus": "Change le statut du bot.",
+            "prevname": "Affiche tout les pseudos d'un membre enregistré dans ma base de données.",
+            "ascii": "Envoie un texte au format ascii.",
+            "say": "Dite moi un message et je l'enverrai dans le salon.",
+            "unwarn": "Retiré une sanction d'un membre.",
+            "setactivitytype": "Changé le type d'activité du bot (STREAMING, PLAYING, etc).",
+            "protections": "Regarder les protections actuel.",
+            "massrole": "Ajoute/Retire un rôle à tout le monde.",
+            "invite": "Obtenir le nombre d'invitations total d'un membre.",
+            "boosters": "Affiche la liste des boosters du serveur.",
+            "custom-cmd": "Permet de créer/supprimer des commandes personalisé.",
+            "rewards": "Ajouter/Retirer une récompense (un rôle) lorsqu'un membre atteint un certain nombre d'invitation ou de niveau."
+        },
+        "access": {
+            "wl": [
+                "propriétaire",
+                "permission 2"
+            ],
+            "bl": [
+                "propriétaire",
+                "permission 2"
+            ],
+            "perm": [
+                "whitelist",
+                "tout le monde"
+            ],
+            "sanction": [
+                "permission 3"
+            ],
+            "mute": [
+                "permission 2"
+            ],
+            "unmute": [
+                "permission 3"
+            ],
+            "tempmute": [
+                "permission 3"
+            ],
+            "setlang": [
+                "whitelist"
+            ],
+            "setprefix": [
+                "whitelist"
+            ],
+            "ping": [
+                "tout le monde"
+            ],
+            "level": [
+                "tout le monde"
+            ],
+            "leaderboard": [
+                "tout le monde"
+            ],
+            "clear": [
+                "permission 2"
+            ],
+            "ticket": [
+                "tout le monde"
+            ],
+            "ban": [
+                "perm ban/kick"
+            ],
+            "kick": [
+                "perm ban/kick"
+            ],
+            "unban": [
+                "perm ban/kick"
+            ],
+            "warn": [
+                "permission 3"
+            ],
+            "nuke": [
+                "whitelist"
+            ],
+            "slowdown": [
+                "permission 1"
+            ],
+            "lock": [
+                "permission 3"
+            ],
+            "unlock": [
+                "permission 3"
+            ],
+            "support": [
+                "tout le monde"
+            ],
+            "snipe": [
+                "tout le monde"
+            ],
+            "pp": [
+                "tout le monde"
+            ],
+            "Sinfos": [
+                "tout le monde"
+            ],
+            "infos": [
+                "tout le monde"
+            ],
+            "cry": [
+                "tout le monde"
+            ],
+            "kiss": [
+                "tout le monde"
+            ],
+            "hug": [
+                "tout le monde"
+            ],
+            "pat": [
+                "tout le monde"
+            ],
+            "smile": [
+                "tout le monde"
+            ],
+            "fight": [
+                "tout le monde"
+            ],
+            "slap": [
+                "tout le monde"
+            ],
+            "waifu": [
+                "tout le monde"
+            ],
+            "derank": [
+                "whitelist"
+            ],
+            "embed": [
+                "whitelist"
+            ],
+            "permchecker": [
+                "tout le monde"
+            ],
+            "botslist": [
+                "tout le monde"
+            ],
+            "giveaway": [
+                "permission 1"
+            ],
+            "spam": [
+                "whitelist",
+                "permission 1"
+            ],
+            "reactionrole": [
+                "whitelist"
+            ],
+            "8ball": [
+                "tout le monde"
+            ],
+            "voicemove": [
+                "permission 1"
+            ],
+            "anime": [
+                "tout le monde"
+            ],
+            "github": [
+                "tout le monde"
+            ],
+            "instagram": [
+                "tout le monde"
+            ],
+            "remove-everyone": [
+                "permission 1"
+            ],
+            "role": [
+                "whitelist"
+            ],
+            "Rinfos": [
+                "tout le monde"
+            ],
+            "rwl": [
+                "whitelist"
+            ],
+            "settings": [
+                "propriétaire"
+            ],
+            "owner": [
+                "propriétaire"
+            ],
+            "backup": [
+                "propriétaire"
+            ],
+            "setactivity": [
+                "propriétaire"
+            ],
+            "setavatar": [
+                "propriétaire"
+            ],
+            "setname": [
+                "propriétaire"
+            ],
+            "setstatus": [
+                "propriétaire"
+            ],
+            "prevname": [
+                "tout le monde"
+            ],
+            "ascii": [
+                "permission 3"
+            ],
+            "say": [
+                "tout le monde"
+            ],
+            "unwarn": [
+                "permission 2"
+            ],
+            "setactivitytype": [
+                "propriétaire"
+            ],
+            "protections": [
+                "whitelist"
+            ],
+            "massrole": [
+                "propriétaire"
+            ],
+            "invite": [
+                "tout le monde"
+            ],
+            "boosters": [
+                "tout le monde"
+            ],
+            "custom-cmd": [
+                "propriétaire"
+            ],
+            "rewards": [
+                "propriétaire"
+            ]
+        },
+        "cat": {
+            "wl": "Modération ++",
+            "bl": "Modération ++",
+            "perm": "Information",
+            "sanction": "Information",
+            "mute": "Modération",
+            "unmute": "Modération",
+            "tempmute": "Modération",
+            "setlang": "Paramètres",
+            "setprefix": "Paramètres",
+            "ping": "Information",
+            "level": "Information",
+            "leaderboard": "Information",
+            "clear": "Modération",
+            "ticket": "Contact",
+            "ban": "Modération",
+            "kick": "Modération",
+            "unban": "Modération",
+            "warn": "Modération",
+            "nuke": "Modération ++",
+            "slowdown": "Modération",
+            "lock": "Modération",
+            "unlock": "Modération",
+            "support": "Information",
+            "snipe": "Information",
+            "pp": "Fun",
+            "Sinfos": "Information",
+            "infos": "Information",
+            "cry": "Fun",
+            "kiss": "Fun",
+            "hug": "Fun",
+            "pat": "Fun",
+            "smile": "Fun",
+            "slap": "Fun",
+            "fight": "Fun",
+            "waifu": "Fun",
+            "derank": "Modération ++",
+            "embed": "Fun",
+            "permchecker": "Information",
+            "botslist": "Information",
+            "giveaway": "Fun",
+            "spam": "Modération ++",
+            "reactionrole": "Modération ++",
+            "8ball": "Fun",
+            "voicemove": "Modération",
+            "anime": "Fun",
+            "github": "Fun",
+            "instagram": "Fun",
+            "remove-everyone": "Modération ++",
+            "role": "Modération",
+            "Rinfos": "Information",
+            "rwl": "Modération ++",
+            "settings": "Paramètres",
+            "owner": "Paramètres",
+            "backup": "Paramètres",
+            "setactivity": "Paramètres",
+            "setavatar": "Paramètres",
+            "setname": "Paramètres",
+            "setstatus": "Paramètres",
+            "prevname": "Information",
+            "ascii": "Fun",
+            "say": "Fun",
+            "unwarn": "Modération",
+            "setactivitytype": "Paramètres",
+            "protections": "Paramètres",
+            "massrole": "Modération ++",
+            "invite": "Information",
+            "boosters": "Information",
+            "custom-cmd": "Modération",
+            "rewards": "Fun"
+        }
+    }
+}
